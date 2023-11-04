@@ -2,6 +2,7 @@
 
 ## 1) let vs Var-
 
+```
 let printNumTwo;
 for (let i = 0; i < 3; i++) {
 if (i === 1) {
@@ -11,12 +12,13 @@ return i;
 }
 }
 console.log(printNumTwo());
+```
 
 a)let printNumTwo; - This line declares a variable named printNumTwo without assigning it a value.
 
-b)for (let i = 0; i < 3; i++) {...} - This is a for loop that will iterate three times. The variable i is declared with let, which means it has block scope. A new i is created for each iteration of the loop , resulting in three different i variables with unique values (0, 1, and 2).
+b)`for (let i = 0; i < 3; i++) {...}` - This is a for loop that will iterate three times. The variable i is declared with let, which means it has block scope. A new i is created for each iteration of the loop , resulting in three different i variables with unique values (0, 1, and 2).
 
-c)if (i === 1) {...} - This if statement checks if i is equal to 1. This will only be true during the second iteration of the loop.
+c) `if (i === 1) {...} ` - This if statement checks if i is equal to 1. This will only be true during the second iteration of the loop.
 
 d)printNumTwo = function() {...}; - This line assigns a function to printNumTwo. This function, when called, will return the current value of i.
 At this point, i is 1, so the function will return 1
@@ -52,14 +54,19 @@ In "non-strict mode", any attempts to modify a frozen object will fail silently�
 
 ES6 provides us with the syntactic sugar to not have to write anonymous functions this way. Instead, you can use arrow function syntax:
 
+```
 const myFunc = () => {
 const myVar = "value";
 return myVar;
 }
+```
 
 When you have single line of function , and only a return value, arrow function syntax allows you to omit the keyword return as well as the brackets surrounding the code. This helps simplify smaller functions into one-line statements:
 
+```
 const myFunc = () => "value";
+```
+
 This code will still return the string value by default.
 
 ---
@@ -83,10 +90,13 @@ but if we have more then we have to use parantheses .
 (⚡⚡ if there is no argument(UNDEFINED) passed and there is a parameter in the function what this does it assign it to a default value .⚡⚡)
 
 Example ---
+
+```
 const greeting = (name = "Anonymous") => "Hello " + name;
 
 console.log(greeting("John"));
 console.log(greeting());
+```
 
 RESULT --
 The console will display the strings Hello John and Hello Anonymous.
