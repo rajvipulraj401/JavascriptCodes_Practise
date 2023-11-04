@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 ### Notes:
 
 ## 1) let vs Var-
 
+=======
+
+
+ ### Notes:
+
+## 1) let vs Var-
+>>>>>>> e6a453c574bb8f1fbcfb75d4d920663053dfd96d
 let printNumTwo;
 for (let i = 0; i < 3; i++) {
 if (i === 1) {
@@ -23,11 +31,20 @@ At this point, i is 1, so the function will return 1
 
 d)return i; - This is the body of the function assigned to printNumTwo. It returns the value of i. When this function is created during the second iteration of the loop, i is 1, so the function will always return 1.
 
+<<<<<<< HEAD
 e)console.log(printNumTwo()); - This line calls the function stored in printNumTwo and prints the result to the console. Since printNumTwo returns the value of i at the time the function was created, and the function was created when i was 1, this will print 1.
 
 ## Key Concept -
 
 Closure: In JavaScript, a closure is a function that has access to its own scope, the outer function’s scope, and the global scope. Here, printNumTwo is a closure that captures the i from its scope where i is 1. Even after the loop ends and i becomes 3, printNumTwo() still returns 1 because it “Remembers” the value of i at the time it was created. If printNumTwo was defined outside of the for loop, after the loop has completed, it would just be a function that returns the current value of i, which would be 3 after the loop. But in that case, printNumTwo would not be a closure anymore.
+=======
+d)return i; - This is the body of the function assigned to printNumTwo. It returns the value of i. When this function is created during the second iteration of the loop, i is 1, so the function will always return 1.
+
+e)console.log(printNumTwo()); - This line calls the function stored in printNumTwo and prints the result to the console. Since printNumTwo returns the value of i at the time the function was created, and the function was created when i was 1, this will print 1.
+
+## Key Concept - 
+ Closure: In JavaScript, a closure is a function that has access to its own scope, the outer function’s scope, and the global scope. Here, printNumTwo is a closure that captures the i from its scope where i is 1. Even after the loop ends and i becomes 3, printNumTwo() still returns 1 because it “Remembers” the value of i at the time it was created. If printNumTwo was defined outside of the for loop, after the loop has completed, it would just be a function that returns the current value of i, which would be 3 after the loop. But in that case, printNumTwo would not be a closure anymore.
+>>>>>>> e6a453c574bb8f1fbcfb75d4d920663053dfd96d
 
 ---
 
@@ -37,10 +54,22 @@ objects (including arrays and functions) assigned to a variable using const are 
 
 ---
 
+<<<<<<< HEAD
 ## 3) Object.freeze
 
 - const declaration alone doesn't really protect data from mutation.(in objects like array , objects etc not primitive) they simply just stop from reassigning the variable.
   To ensure your data doesn't change, JavaScript provides a function " Object.freeze " to prevent data mutation.
+=======
+## 2) const keywords-  
+ objects (including arrays and functions) assigned to a variable using const are still mutable. Using the const declaration only prevents reassignment of the variable identifier.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 3) Object.freeze
+- const declaration alone doesn't really protect  data from mutation.(in objects like array , objects etc not primitive) they simply just stop from reassigning the variable.
+  	 To ensure your data doesn't change, JavaScript provides a function " Object.freeze " to prevent data mutation.
+>>>>>>> e6a453c574bb8f1fbcfb75d4d920663053dfd96d
 
 Any attempt at changing the object will be rejected, with an error thrown if the script is running in "strict mode".
 
@@ -50,7 +79,12 @@ In "non-strict mode", any attempts to modify a frozen object will fail silently�
 
 ## 4) Arrow Function--
 
+<<<<<<< HEAD
 ES6 provides us with the syntactic sugar to not have to write anonymous functions this way. Instead, you can use arrow function syntax:
+=======
+## 4) Arrow Function--
+ ES6 provides us with the syntactic sugar to not have to write anonymous functions this way. Instead, you can use arrow function syntax:
+>>>>>>> e6a453c574bb8f1fbcfb75d4d920663053dfd96d
 
 const myFunc = () => {
 const myVar = "value";
@@ -65,6 +99,10 @@ This code will still return the string value by default.
 ---
 
 ## 5) Passing argument in arrow function-
+<<<<<<< HEAD
+=======
+ we can  pass  argument into an arrow function. like this👇🏼
+>>>>>>> e6a453c574bb8f1fbcfb75d4d920663053dfd96d
 
 we can pass argument into an arrow function. like this👇🏼
 
@@ -80,6 +118,10 @@ but if we have more then we have to use parantheses .
 
 ## 6) Default Parameters -
 
+<<<<<<< HEAD
+=======
+## 6) Default Parameters - 
+>>>>>>> e6a453c574bb8f1fbcfb75d4d920663053dfd96d
 (⚡⚡ if there is no argument(UNDEFINED) passed and there is a parameter in the function what this does it assign it to a default value .⚡⚡)
 
 Example ---
@@ -93,4 +135,11 @@ The console will display the strings Hello John and Hello Anonymous.
 
 ---
 
+<<<<<<< HEAD
 ## 7) \*\*Rest Parameters --
+=======
+------------------------------------------------------------------------------------
+
+## 7) **Rest Parameters  --
+
+>>>>>>> e6a453c574bb8f1fbcfb75d4d920663053dfd96d
