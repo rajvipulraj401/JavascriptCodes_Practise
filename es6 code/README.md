@@ -1,3 +1,4 @@
+1) let vs Var-
 let printNumTwo;
 for (let i = 0; i < 3; i++) {
   if (i === 1) {
@@ -46,7 +47,7 @@ In "non-strict mode", any attempts to modify a frozen object will fail silently�
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-4)ES6 provides us with the syntactic sugar to not have to write anonymous functions this way. Instead, you can use arrow function syntax:
+4) ES6 provides us with the syntactic sugar to not have to write anonymous functions this way. Instead, you can use arrow function syntax:
 
 const myFunc = () => {
   const myVar = "value";
@@ -60,7 +61,7 @@ This code will still return the string value by default.
 
 ----------------------------------------------------------------------------------
 
-5)we can  pass  argument into an arrow function. like this👇🏼
+5) we can  pass  argument into an arrow function. like this👇🏼
 
 const multiplier = (item, multi) => item * multi;
 
