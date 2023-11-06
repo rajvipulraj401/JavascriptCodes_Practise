@@ -1,4 +1,4 @@
-		# Notes:
+		# *Notes*:
 
 ## 1) let vs Var-
 
@@ -17,7 +17,8 @@ console.log(printNumTwo());
 a)let printNumTwo; - This line declares a variable named printNumTwo without assigning it a value.
 
 b)```javascript 
-for (let i = 0; i < 3; i++) {...}``` - This is a for loop that will iterate three times. The variable i is declared with let, which means it has block scope. A new i is created for each iteration of the loop , resulting in three different i variables with unique values (0, 1, and 2).
+for (let i = 0; i < 3; i++) {...}
+``` - This is a for loop that will iterate three times. The variable i is declared with let, which means it has block scope. A new i is created for each iteration of the loop , resulting in three different i variables with unique values (0, 1, and 2).
 
 c) ```javascript
  if (i === 1) {...} ``` - This if statement checks if i is equal to 1. This will only be true during the second iteration of the loop.
