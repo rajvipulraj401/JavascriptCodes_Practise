@@ -109,7 +109,8 @@ The console will display the strings Hello John and Hello Anonymous.
 ->Rest parameter is used to pack all the elements into an array.
 
 Rest Parameters in JavaScript
-## A) Function Definitions:
+### A) Function Definitions:
+
  Rest parameters are used in function definitions to collect an indefinite number of arguments into an array.
 
 ```
@@ -121,10 +122,11 @@ console.log(sum(1, 2, 3)); // Outputs: 6
 
 In the above example, ...args is a rest parameter that collects all arguments passed to the sum function into an array.
 
-## B) Destructuring Assignments: 
+### B) Destructuring Assignments :
+ 
 Rest parameters can be used in destructuring assignments to collect the remaining elements into an array or object. They must always be at the end.
 
-###Array Destructuring:
+### Array Destructuring:
 
 ```
 const [first, ...rest] = [1, 2, 3, 4, 5];
@@ -133,7 +135,7 @@ console.log(rest);  // Outputs: [2, 3, 4, 5]
 
 ```
 
-###Object Destructuring (ES2018 and later):
+### Object Destructuring (ES2018 and later):
 
 ```
 const [first, ...rest] = [1, 2, 3, 4, 5];
@@ -225,12 +227,11 @@ In this example, ...obj spreads the properties of obj into a new object copy, cr
 
 ------------------------------------------------------------------------------------------------------------------------
 
-## 9,10,11,14) Object Destructuring in JavaScript
-
+## 9,10,11,14)  Object Destructuring in JavaScript
 
 ### A) Basic Syntax :
 
-```
+```javascript
 const obj = {a: 1, b: 2, c: 3};
 const {a, b, c} = obj;
 console.log(a, b, c); // Outputs: 1 2 3
@@ -241,7 +242,7 @@ In this example, the properties a, b, and c of obj are extracted and assigned to
 
 You can assign the properties of an object to new variable names:
 
-```
+```javascript
 const obj = {a: 1, b: 2, c: 3};
 const {a: first, b: second, c: third} = obj;
 console.log(first, second, third); // Outputs: 1 2 3
@@ -249,9 +250,11 @@ console.log(first, second, third); // Outputs: 1 2 3
 
 In this example, the properties a, b, and c of obj are extracted and assigned to the new variables first, second, and third, respectively.
 
-### C) Default Values: You can provide default values for properties that may not exist in the object:
+### C) Default Values: 
 
-```
+You can provide default values for properties that may not exist in the object:
+
+```javascript
 const obj = {a: 1, b: 2};
 const {a = 10, b = 20, c = 30} = obj;
 console.log(a, b, c); // Outputs: 1 2 30
@@ -259,8 +262,10 @@ console.log(a, b, c); // Outputs: 1 2 30
 In this example, the property c does not exist in obj, so the default value 30 is used.
 
 ### D) Nested Objects: 
+
 You can destructure nested objects:
-```
+
+```javascript
 const obj = {a: 1, b: 2, nested: {c: 3, d: 4}};
 const {a, b, nested: {c, d}} = obj;
 console.log(a, b, c, d); // Outputs: 1 2 3 4
@@ -268,50 +273,60 @@ console.log(a, b, c, d); // Outputs: 1 2 3 4
 In this example, the properties c and d are extracted from the nested object and assigned to the variables c and d, respectively.
 
 ### E) Nested Objects with New Variable Names:
- You can destructure nested objects and assign the properties to new variable names:
-```
+
+You can destructure nested objects and assign the properties to new variable names:
+
+```javascript
 const LOCAL_FORECAST = {today: {low: 32, high: 40}};
 const {today: {low: lowToday, high: highToday}} = LOCAL_FORECAST;
 console.log(lowToday, highToday); // Outputs: 32 40
 ```
 In this example, the properties low and high from the nested today object are extracted and assigned to the new variables lowToday and highToday, respectively. This is done using the colon : syntax inside the nested destructuring {}.
 
-### F) Swapping Variables: Object destructuring can be used to swap variables:
+### F) Swapping Variables: 
 
-```
+Object destructuring can be used to swap variables:
+
+```javascript
 let obj = {a: 1, b: 2};
 let {a: b, b: a} = obj;
 console.log(a, b); // Outputs: 2 1
+```
 In this example, the values of a and b are swapped using object destructuring.
 
-```
-
-
 ### G) Mutating Variables:
- Object destructuring can be used to mutate variables:
-```
+
+Object destructuring can be used to mutate variables:
+
+```javascript
 let a = 2, b = 3;
 const obj = {a: 4, b: 5};
 
 ({a, b} = obj);
 console.log(a, b); // Outputs: 4 5
-
 ```
 In this example, the original values of a and b are mutated (changed) to the values of the properties a and b from obj.
 #### Note the use of parentheses () around the destructuring assignment - this is necessary when you’re mutating existing variables, because without the parentheses, {a, b} = obj; is considered a block statement instead of an assignment operation.
 
-### H)Shallow Copy: It creates a new object and copies over the values of the original object. However, it only copies the reference (i.e., the address of the object). This can be done using Object.assign() and the spread operator (...).
+### H) Shallow Copy: 
 
-### I) Deep Copy: It creates a new object and copies the values from the original object, including nested objects. This can be done using JSON.stringify() and JSON.parse().
+It creates a new object and copies over the values of the original object. However, it only copies the reference (i.e., the address of the object). This can be done using Object.assign() and the spread operator (...).
 
-### NOte -there is no concept of deep or shallow copy for primitive data types, as they are immutable1. Shallow copies are used for “flat” objects, which contain only primitive values, while deep copies are used for “nested” objects, which contain non-primitive values1.
+### I) Deep Copy: 
 
+It creates a new object and copies the values from the original object, including nested objects. This can be done using JSON.stringify() and JSON.parse().
 
-##VVI
-### note -// We don't need to write `const` or `let` in the parameter when we do object or array destructuring in function parameters. This is because the destructuring assignment itself creates new variables within the function scope, so we don't need to explicitly declare them.
+### Note - 
 
+There is no concept of deep or shallow copy for primitive data types, as they are immutable. Shallow copies are used for “flat” objects, which contain only primitive values, while deep copies are used for “nested” objects, which contain non-primitive values.
 
-```
+## VVI
+
+### Note - 
+
+We don't need to write `const` or `let` in the parameter when we do object or array destructuring in function parameters. This is because the destructuring assignment itself creates new variables within the function scope, so we don't need to explicitly declare them.
+
+```javascript
 function greet({ name }) {
   console.log(`Hello, ${name}!`);
 }
@@ -322,10 +337,7 @@ const person = {
 };
 
 greet(person); // Output: Hello, John Doe!
-
-
-```
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+```----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
