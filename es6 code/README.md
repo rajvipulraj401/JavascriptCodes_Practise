@@ -446,3 +446,165 @@ let greeting = `Hello ${name},
     I hope you are having a great day!`;
 console.log(greeting);
 ```
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sure, let's break down the difference between shallow copy and deep copy in JavaScript:
+
+## Shallow Copy
+A shallow copy creates a new object and copies over the values of the original object. However, it only copies the reference to nested objects, not the actual objects themselves. This means that changes to the nested objects in the copied object will also affect the original object. Here's an example:
+
+```javascript
+const originalObject = {a: 1, b: {c: 2}};
+const shallowCopy = {...originalObject};
+shallowCopy.b.c = 3;
+console.log(originalObject.b.c); // Outputs: 3
+```
+
+In this example, changing the `c` property of the nested `b` object in `shallowCopy` also changes the `c` property in `originalObject`.
+
+## Deep Copy
+A deep copy, on the other hand, creates a new object and copies over the values of the original object, including nested objects. This means that changes to the nested objects in the copied object will not affect the original object. Here's an example:
+
+```javascript
+const originalObject = {a: 1, b: {c: 2}};
+const deepCopy = JSON.parse(JSON.stringify(originalObject));
+deepCopy.b.c = 3;
+console.log(originalObject.b.c); // Outputs: 2
+```
+
+In this example, changing the `c` property of the nested `b` object in `deepCopy` does not change the `c` property in `originalObject`.
+
+
+###Let's see different ways to do shallow copy of object.
+  
+```javascript
+const obj = {a: 1, b: 2, c: 3};
+const copy = {...obj};
+console.log(copy); // Outputs: {a: 1, b: 2, c: 3}
+```
+
+In this example, `...obj` spreads the properties of `obj` into a new object `copy`. This creates a shallow copy of `obj`.
+
+You can also use `Object.assign()` to create a shallow copy:
+
+```javascript
+const obj = {a: 1, b: 2, c: 3};
+const copy = Object.assign({}, obj);
+console.log(copy); // Outputs: {a: 1, b: 2, c: 3}
+```
+
+In this example, `Object.assign()` is used to copy the properties of `obj` into a new object.
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+## 16)**Enhanced Object Literals in ES6**
+
+ES6 introduced several enhancements to object literals, making them more concise and powerful. These enhancements simplify object creation, method definition, and dynamic property naming, resulting in cleaner and more expressive code. Here are the key features:
+
+1. **Object Property Shorthand**:
+
+   - **Before ES6**:
+     In pre-ES6 JavaScript, you had to explicitly specify the variable name as both the property name and the property value when defining an object property.
+   
+     ```javascript
+     const x = 10;
+     const y = 20;
+     const obj = {x: x, y: y};
+     ```
+
+   - **With ES6 Object Property Shorthand**:
+     ES6 introduced a more concise way to define object properties. If the variable name matches the property name, you can omit the duplication.
+   
+     ```javascript
+     const x = 10;
+     const y = 20;
+     const obj = {x, y};
+     ```
+
+2. **Including Objects Inside Objects**:
+
+   - **Before ES6**:
+     Before ES6, you could include objects inside other objects, but the syntax was a bit more verbose and required explicit nesting.
+   
+     ```javascript
+     const outerObj = {
+       innerObj: {
+         key: value
+       }
+     };
+     ```
+
+   - **With ES6 Enhanced Object Literals**:
+     ES6 allows you to nest objects more cleanly within other objects, making it simpler to structure and organize your data.
+
+     ```javascript
+     const outerObj = {
+       innerObj: {
+         key: value
+       }
+     };
+     ```
+
+3. **Method Definitions**:
+
+   - **Before ES6**:
+     In pre-ES6 JavaScript, object methods were defined using the `function` keyword, making the syntax slightly more verbose.
+   
+     ```javascript
+     const myObj = {
+       myMethod: function() {
+         // Method implementation
+       }
+     };
+     ```
+
+   - **With ES6 Method Definitions**:
+     ES6 introduced a cleaner and more consistent syntax for defining methods directly within object literals, without the `function` keyword.
+
+     ```javascript
+     const myObj = {
+       myMethod() {
+         // Method implementation
+       }
+     };
+     ```
+
+4. **Computed Property Names**:
+
+   - **Before ES6**:
+     Before ES6, it was only possible to compute property values but not property names in object literals. Property names had to be written out manually or statically.
+   
+     ```javascript
+     const operatingHours = {
+       thu: {
+         open: 12,
+         close: 12 + 12,
+       },
+       sat: {
+         open: 0,
+         close: 24,
+       }
+     };
+     ```
+
+   - **With ES6 Computed Property Names**:
+     ES6 introduced computed property names, enabling you to dynamically compute both property names and values during object creation.
+
+     ```javascript
+     const weekday = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+     const operatingHours = {
+       [weekday[3]]: {
+         open: 12,
+         close: 12 + 12,
+       },
+       [`day-${2 + 4}`]: {
+         open: 0,
+         close: 24,
+       }
+     };
+     ```
+
+These enhancements in ES6 make object literal declarations more concise, expressive, and versatile, contributing to cleaner and more readable JavaScript code.
