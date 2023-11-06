@@ -337,7 +337,8 @@ const person = {
 };
 
 greet(person); // Output: Hello, John Doe!
-```----------------------------------------------------------------------------------------------------------------------------------------------------------------
+```
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -345,7 +346,7 @@ greet(person); // Output: Hello, John Doe!
 
 Array destructuring in JavaScript allows you to unpack values from arrays, or properties from objects, into distinct variables.
 
-**##Basic Syntax##**: The basic syntax of array destructuring is as follows:
+*Basic Syntax*: The basic syntax of array destructuring is as follows:
 
 ```javascript
 const arr = [1, 2, 3];
