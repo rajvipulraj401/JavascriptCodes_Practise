@@ -1,4 +1,4 @@
-# Notes-------:
+ 	# Notes:
 
 ## 1) let vs Var-
 
@@ -20,12 +20,12 @@ b)```for (let i = 0; i < 3; i++) {...}``` - This is a for loop that will iterate
 
 c) ```if (i === 1) {...} ``` - This if statement checks if i is equal to 1. This will only be true during the second iteration of the loop.
 
-d)printNumTwo = function() {...}; - This line assigns a function to printNumTwo. This function, when called, will return the current value of i.
+d)```printNumTwo = function() {...};``` - This line assigns a function to printNumTwo. This function, when called, will return the current value of i.
 At this point, i is 1, so the function will return 1
 
-d)return i; - This is the body of the function assigned to printNumTwo. It returns the value of i. When this function is created during the second iteration of the loop, i is 1, so the function will always return 1.
+d)*return i*; - This is the body of the function assigned to printNumTwo. It returns the value of i. When this function is created during the second iteration of the loop, i is 1, so the function will always return 1.
 
-e)console.log(printNumTwo()); - This line calls the function stored in printNumTwo and prints the result to the console. Since printNumTwo returns the value of i at the time the function was created, and the function was created when i was 1, this will print 1.
+e)```console.log(printNumTwo()); ```- This line calls the function stored in printNumTwo and prints the result to the console. Since printNumTwo returns the value of i at the time the function was created, and the function was created when i was 1, this will print 1.
 
 ## Key Concept -
 
