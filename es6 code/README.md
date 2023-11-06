@@ -27,9 +27,10 @@ d)*return i*; - This is the body of the function assigned to printNumTwo. It ret
 
 e)```console.log(printNumTwo()); ```- This line calls the function stored in printNumTwo and prints the result to the console. Since printNumTwo returns the value of i at the time the function was created, and the function was created when i was 1, this will print 1.
 
-## Key Concept -
+### Key Concept -
 
-**Closure**: In JavaScript, a closure is a function that has access to its **own scope**, the outer function’s scope, and the global scope. Here, `printNumTwo` is a closure that captures the `i` from its scope where `i` is 1. Even after the loop ends and `i` becomes 3, `printNumTwo()` still returns 1 because it “Remembers” the value of `i` at the time it was created. If `printNumTwo` was defined outside of the `for` loop, after the loop has completed, it would just be a function that returns the current value of `i`, which would be 3 after the loop. But in that case, `printNumTwo` would not be a closure anymore.
+**Closure**:
+ In JavaScript, a closure is a function that has access to its **own scope**, the outer function’s scope, and the global scope. Here, `printNumTwo` is a closure that captures the `i` from its scope where `i` is 1. Even after the loop ends and `i` becomes 3, `printNumTwo()` still returns 1 because it “Remembers” the value of `i` at the time it was created. If `printNumTwo` was defined outside of the `for` loop, after the loop has completed, it would just be a function that returns the current value of `i`, which would be 3 after the loop. But in that case, `printNumTwo` would not be a closure anymore.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 2) const keywords-
