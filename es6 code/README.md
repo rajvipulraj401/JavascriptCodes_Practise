@@ -29,7 +29,7 @@ e)```console.log(printNumTwo()); ```- This line calls the function stored in pri
 
 #### Key Concept-
 
-*Closure*: In JavaScript, a closure is a function that has access to its *`own scope`*, the outer function’s scope, and the global scope. Here, `printNumTwo` is a closure that captures the `i` from its scope where `i` is 1. Even after the loop ends and `i` becomes 3, `printNumTwo()` still returns 1 because it “Remembers” the value of `i` at the time it was created. If `printNumTwo` was defined outside of the `for` loop, after the loop has completed, it would just be a function that returns the current value of `i`, which would be 3 after the loop. But in that case, `printNumTwo` would not be a closure anymore.
+*Closure*:-- In JavaScript, a closure is a function that has access to its *`own scope`*, the outer function’s scope, and the global scope. Here, `printNumTwo` is a closure that captures the `i` from its scope where `i` is 1. Even after the loop ends and `i` becomes 3, `printNumTwo()` still returns 1 because it “Remembers” the value of `i` at the time it was created. If `printNumTwo` was defined outside of the `for` loop, after the loop has completed, it would just be a function that returns the current value of `i`, which would be 3 after the loop. But in that case, `printNumTwo` would not be a closure anymore.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -75,11 +75,11 @@ This code will still return the string value by default.
 
 we can pass argument into an arrow function. like this👇🏼
 
-const multiplier = (item, multi) => item \* multi;
+```const multiplier = (item, multi) => item \* multi;```
 
 *Note - If an arrow function has a single parameter, the parentheses enclosing the parameter may be omitted.*
 
-example⭐---const doubler = item => item \* 2;
+example⭐---`const doubler = item => item \* 2;`
 
 but if we have more then we have to use parantheses .
 
