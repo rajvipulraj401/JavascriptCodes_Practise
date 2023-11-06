@@ -1,4 +1,4 @@
-### Notes:
+# Notes:
 
 ## 1) let vs Var-
 
@@ -109,7 +109,7 @@ The console will display the strings Hello John and Hello Anonymous.
 ->Rest parameter is used to pack all the elements into an array.
 
 Rest Parameters in JavaScript
-# A) Function Definitions:
+## A) Function Definitions:
  Rest parameters are used in function definitions to collect an indefinite number of arguments into an array.
 
 ```
@@ -121,10 +121,10 @@ console.log(sum(1, 2, 3)); // Outputs: 6
 
 In the above example, ...args is a rest parameter that collects all arguments passed to the sum function into an array.
 
-# B) Destructuring Assignments: 
+## B) Destructuring Assignments: 
 Rest parameters can be used in destructuring assignments to collect the remaining elements into an array or object. They must always be at the end.
 
-#Array Destructuring:
+###Array Destructuring:
 
 ```
 const [first, ...rest] = [1, 2, 3, 4, 5];
@@ -133,7 +133,7 @@ console.log(rest);  // Outputs: [2, 3, 4, 5]
 
 ```
 
-#Object Destructuring (ES2018 and later):
+###Object Destructuring (ES2018 and later):
 
 ```
 const [first, ...rest] = [1, 2, 3, 4, 5];
@@ -145,6 +145,7 @@ In both examples, ...rest is a rest parameter that collects the rest of the elem
 
 Remember, when using rest parameters in destructuring assignments, the right side of the assignment must be an iterable (like an array or a string) or an object(since es2018).
 
+### note -// We don't need to write `const` or `let` in the parameter when we do object or array destructuring in function parameters. This is because the destructuring assignment itself creates new variables within the function scope, so we don't need to explicitly declare them.
 
 
 --------------------------------------------------------------------------------
@@ -153,7 +154,7 @@ Remember, when using rest parameters in destructuring assignments, the right sid
 
 The spread operator (...) is used to unpack elements from an array or properties from an object. It’s typically used on the right side of an assignment operator. It allows an iterable (like an array or string) to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected.
 
-# A) Function Calls:
+### A) Function Calls:
  Spread syntax can be used when invoking functions:
 
 
@@ -168,7 +169,7 @@ console.log(sum(...numbers)); // Outputs: 6
 ```
 In this example, ...numbers spreads an array into separate arguments when calling the sum function.
 
-# B)  Array Literals
+### B)  Array Literals
 
 Spread syntax can be used for array construction and concatenation:
 
@@ -178,7 +179,7 @@ const arr2 = [...arr1, 4, 5]; // arr2 is now [1, 2, 3, 4, 5]
 
 ```
 
-# C) Object Literals (ES2018 and later): 
+### C) Object Literals (ES2018 and later): 
 Spread syntax can be used to copy properties from one object to another:
 
 
@@ -187,7 +188,7 @@ const obj1 = {a: 1, b: 2};
 const obj2 = {...obj1, c: 3}; // obj2 is now {a: 1, b: 2, c: 3}
 ```
 
-# D)In-place Usage: 
+### D)In-place Usage: 
 The spread operator only works in-place, like in an argument to a function or in an array literal:
 
 ```
@@ -206,7 +207,7 @@ const spreaded = ...arr; // This will throw an error
 ## 9) Object Destructuring in JavaScript
 
 
-# A) Basic Syntax :
+### A) Basic Syntax :
 
 ```
 const obj = {a: 1, b: 2, c: 3};
@@ -215,7 +216,7 @@ console.log(a, b, c); // Outputs: 1 2 3
 ```
 In this example, the properties a, b, and c of obj are extracted and assigned to the variables a, b, and c, respectively.
 
-# B) Assigning to New Variable Names:
+### B) Assigning to New Variable Names:
 
 You can assign the properties of an object to new variable names:
 
@@ -227,7 +228,7 @@ console.log(first, second, third); // Outputs: 1 2 3
 
 In this example, the properties a, b, and c of obj are extracted and assigned to the new variables first, second, and third, respectively.
 
-# C) Default Values: You can provide default values for properties that may not exist in the object:
+### C) Default Values: You can provide default values for properties that may not exist in the object:
 
 ```
 const obj = {a: 1, b: 2};
@@ -236,7 +237,7 @@ console.log(a, b, c); // Outputs: 1 2 30
 ```
 In this example, the property c does not exist in obj, so the default value 30 is used.
 
-# D) Nested Objects: 
+### D) Nested Objects: 
 You can destructure nested objects:
 ```
 const obj = {a: 1, b: 2, nested: {c: 3, d: 4}};
@@ -245,7 +246,7 @@ console.log(a, b, c, d); // Outputs: 1 2 3 4
 ```
 In this example, the properties c and d are extracted from the nested object and assigned to the variables c and d, respectively.
 
-# E) Nested Objects with New Variable Names:
+### E) Nested Objects with New Variable Names:
  You can destructure nested objects and assign the properties to new variable names:
 ```
 const LOCAL_FORECAST = {today: {low: 32, high: 40}};
@@ -254,12 +255,57 @@ console.log(lowToday, highToday); // Outputs: 32 40
 ```
 In this example, the properties low and high from the nested today object are extracted and assigned to the new variables lowToday and highToday, respectively. This is done using the colon : syntax inside the nested destructuring {}.
 
-# F) Swapping Variables: Object destructuring can be used to swap variables:
-JavaScript
-AI-generated code. Review and use carefully. More info on FAQ.
+### F) Swapping Variables: Object destructuring can be used to swap variables:
 
+```
 let obj = {a: 1, b: 2};
 let {a: b, b: a} = obj;
 console.log(a, b); // Outputs: 2 1
 In this example, the values of a and b are swapped using object destructuring.
 
+```
+
+
+### G) Mutating Variables:
+ Object destructuring can be used to mutate variables:
+```
+let a = 2, b = 3;
+const obj = {a: 4, b: 5};
+
+({a, b} = obj);
+console.log(a, b); // Outputs: 4 5
+
+```
+In this example, the original values of a and b are mutated (changed) to the values of the properties a and b from obj.
+#### Note the use of parentheses () around the destructuring assignment - this is necessary when you’re mutating existing variables, because without the parentheses, {a, b} = obj; is considered a block statement instead of an assignment operation.
+
+### H)Shallow Copy: It creates a new object and copies over the values of the original object. However, it only copies the reference (i.e., the address of the object). This can be done using Object.assign() and the spread operator (...).
+
+### I) Deep Copy: It creates a new object and copies the values from the original object, including nested objects. This can be done using JSON.stringify() and JSON.parse().
+
+### NOte -there is no concept of deep or shallow copy for primitive data types, as they are immutable1. Shallow copies are used for “flat” objects, which contain only primitive values, while deep copies are used for “nested” objects, which contain non-primitive values1.
+
+
+##VVI
+### note -// We don't need to write `const` or `let` in the parameter when we do object or array destructuring in function parameters. This is because the destructuring assignment itself creates new variables within the function scope, so we don't need to explicitly declare them.
+
+
+```
+function greet({ name }) {
+  console.log(`Hello, ${name}!`);
+}
+
+const person = {
+  name: "John Doe",
+  age: 30
+};
+
+greet(person); // Output: Hello, John Doe!
+
+
+```
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+## 10) 
