@@ -1,8 +1,8 @@
-# Notes:
+		# Notes:
 
 ## 1) let vs Var-
 
-```
+```javascript
 let printNumTwo;
 for (let i = 0; i < 3; i++) {
 if (i === 1) {
@@ -16,9 +16,11 @@ console.log(printNumTwo());
 
 a)let printNumTwo; - This line declares a variable named printNumTwo without assigning it a value.
 
-b)`for (let i = 0; i < 3; i++) {...}` - This is a for loop that will iterate three times. The variable i is declared with let, which means it has block scope. A new i is created for each iteration of the loop , resulting in three different i variables with unique values (0, 1, and 2).
+b)```javascript 
+for (let i = 0; i < 3; i++) {...}``` - This is a for loop that will iterate three times. The variable i is declared with let, which means it has block scope. A new i is created for each iteration of the loop , resulting in three different i variables with unique values (0, 1, and 2).
 
-c) `if (i === 1) {...} ` - This if statement checks if i is equal to 1. This will only be true during the second iteration of the loop.
+c) ```javascript
+ if (i === 1) {...} ``` - This if statement checks if i is equal to 1. This will only be true during the second iteration of the loop.
 
 d)printNumTwo = function() {...}; - This line assigns a function to printNumTwo. This function, when called, will return the current value of i.
 At this point, i is 1, so the function will return 1
@@ -29,24 +31,24 @@ e)console.log(printNumTwo()); - This line calls the function stored in printNumT
 
 ## Key Concept -
 
-Closure: In JavaScript, a closure is a function that has access to its own scope, the outer function’s scope, and the global scope. Here, printNumTwo is a closure that captures the i from its scope where i is 1. Even after the loop ends and i becomes 3, printNumTwo() still returns 1 because it “Remembers” the value of i at the time it was created. If printNumTwo was defined outside of the for loop, after the loop has completed, it would just be a function that returns the current value of i, which would be 3 after the loop. But in that case, printNumTwo would not be a closure anymore.
+*Closure*: In JavaScript, a closure is a function that has access to its *own scope*, the outer function’s scope, and the global scope. Here, printNumTwo is a closure that captures the i from its scope where i is 1. Even after the loop ends and i becomes 3, printNumTwo() still returns 1 because it “Remembers” the value of i at the time it was created. If printNumTwo was defined outside of the for loop, after the loop has completed, it would just be a function that returns the current value of i, which would be 3 after the loop. But in that case, printNumTwo would not be a closure anymore.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 2) const keywords-
 
-objects (including arrays and functions) assigned to a variable using const are still mutable. Using the const declaration only prevents reassignment of the variable identifier.
+Objects (including arrays and functions) assigned to a variable using const are still mutable. Using the *const declaration on objects only prevents reassignment of the variable identifier*.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 3) Object.freeze
 
 - const declaration alone doesn't really protect data from mutation.(in objects like array , objects etc not primitive) they simply just stop from reassigning the variable.
-  To ensure your data doesn't change, JavaScript provides a function " Object.freeze " to prevent data mutation.
+  To ensure your data doesn't change, JavaScript provides a function " *Object.freeze* " to prevent data mutation.
 
-Any attempt at changing the object will be rejected, with an error thrown if the script is running in "strict mode".
+Any attempt at changing the object will be rejected, with an error thrown if the script is running in *"strict mode"*.
 
-In "non-strict mode", any attempts to modify a frozen object will fail silently—no error will be thrown, but the object will remain unchanged.
+In *"non-strict mode"*, any attempts to modify a frozen object will fail silently—no error will be thrown, but the object will remain unchanged.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -54,7 +56,7 @@ In "non-strict mode", any attempts to modify a frozen object will fail silently�
 
 ES6 provides us with the syntactic sugar to not have to write anonymous functions this way. Instead, you can use arrow function syntax:
 
-```
+```javascript
 const myFunc = () => {
 const myVar = "value";
 return myVar;
@@ -63,7 +65,7 @@ return myVar;
 
 When you have single line of function , and only a return value, arrow function syntax allows you to omit the keyword return as well as the brackets surrounding the code. This helps simplify smaller functions into one-line statements:
 
-```
+```javascript
 const myFunc = () => "value";
 ```
 
@@ -77,7 +79,7 @@ we can pass argument into an arrow function. like this👇🏼
 
 const multiplier = (item, multi) => item \* multi;
 
-note - If an arrow function has a single parameter, the parentheses enclosing the parameter may be omitted.
+*Note - If an arrow function has a single parameter, the parentheses enclosing the parameter may be omitted.*
 
 example⭐---const doubler = item => item \* 2;
 
@@ -92,62 +94,56 @@ but if we have more then we have to use parantheses .
 
 Example ---
 
-```
+
+```javascript
 const greeting = (name = "Anonymous") => "Hello " + name;
 
-console.log(greeting("John"));
-console.log(greeting());
+console.log(greeting("John")); // Outputs: Hello John
+console.log(greeting()); // Outputs: Hello Anonymous
 ```
 
-RESULT --
-The console will display the strings Hello John and Hello Anonymous.
+The console will display the strings `Hello John` and `Hello Anonymous`. The function `greeting` takes one argument `name`. If no argument is provided when the function is called, it will use the default value `"Anonymous"`. So, `greeting("John")` returns `"Hello John"` and `greeting()` returns `"Hello Anonymous"`.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 7) \*\*Rest Parameters --
+## 7) Rest Parameter/Operator --
 
-->Rest parameter is used to pack all the elements into an array.
+1. **Function Definitions**: Rest parameters are used in function definitions to collect an indefinite number of arguments into an array.
 
-Rest Parameters in JavaScript
-### A) Function Definitions:
-
- Rest parameters are used in function definitions to collect an indefinite number of arguments into an array.
-
-```
+```javascript
 function sum(...args) {
     return args.reduce((a, b) => a + b, 0);
 }
 console.log(sum(1, 2, 3)); // Outputs: 6
 ```
 
-In the above example, ...args is a rest parameter that collects all arguments passed to the sum function into an array.
+In the above example, `...args` is a rest parameter that collects all arguments passed to the `sum` function into an array.
 
-### B) Destructuring Assignments :
- 
-Rest parameters can be used in destructuring assignments to collect the remaining elements into an array or object. They must always be at the end.
+2. **Destructuring Assignments**: Rest parameters can be used in destructuring assignments to collect the remaining elements into an array or object. They must always be at the end.
 
-### Array Destructuring:
+- *Array Destructuring*:
 
-```
-const [first, ...rest] = [1, 2, 3, 4, 5];
-console.log(first); // Outputs: 1
-console.log(rest);  // Outputs: [2, 3, 4, 5]
-
-```
-
-### Object Destructuring (ES2018 and later):
-
-```
+```javascript
 const [first, ...rest] = [1, 2, 3, 4, 5];
 console.log(first); // Outputs: 1
 console.log(rest);  // Outputs: [2, 3, 4, 5]
 ```
 
-In both examples, ...rest is a rest parameter that collects the rest of the elements from the array or properties from the object into a new array or object.
+- *Object Destructuring (ES2018 and later)*:
 
-Remember, when using rest parameters in destructuring assignments, the right side of the assignment must be an iterable (like an array or a string) or an object(since es2018).
+```javascript
+const {a, ...rest} = {a: 1, b: 2, c: 3};
+console.log(a);     // Outputs: 1
+console.log(rest);  // Outputs: {b: 2, c: 3}
+```
 
-### note -// We don't need to write `const` or `let` in the parameter when we do object or array destructuring in function parameters. This is because the destructuring assignment itself creates new variables within the function scope, so we don't need to explicitly declare them.
+In both examples, `...rest` is a rest parameter that collects the rest of the elements from the array or properties from the object into a new array or object.
+
+
+
+**Remember, when using rest parameters in destructuring assignments, the right side of the assignment must be an iterable (like an array or a string) or an object(since es2018).**
+
+### note -//**We don't need to write `const` or `let` in the parameter when we do object or array destructuring in function parameters. This is because the destructuring assignment itself creates new variables within the function scope, so we don't need to explicitly declare them.**
 
 
 --------------------------------------------------------------------------------
@@ -195,9 +191,7 @@ console.log(copy); // Outputs: {a: 1, b: 2, c: 3}
 
 In this example, `...obj` spreads the properties of `obj` into a new object `copy`, creating a shallow copy of `obj`.
 
-5. **Difference from Array Destructuring**: One key difference between the spread operator and array destructuring is that the spread operator unpacks all contents of an array into a comma-separated list. Consequently, you cannot pick or choose which elements you want to assign to variables. Destructuring an array lets us do exactly that.
-
-E) **In-place Usage**:  The spread operator only works in-place, like in an argument to a function or in an array literal:
+5. **In-place Usage**:  The spread operator only works in-place, like in an argument to a function or in an array literal:
 
 ```javascript
 const spreaded = [...arr]; // This works
@@ -211,7 +205,7 @@ const spreaded = ...arr; // This will throw an error
 
 
 
- F) **Creating Shallow Copies**: The spread operator can be used to create a shallow copy of an object:
+ 6. **Creating Shallow Copies**: The spread operator can be used to create a shallow copy of an object:
 ```
 const obj = {a: 1, b: 2, c: 3};
 const copy = {...obj};
@@ -226,7 +220,7 @@ In this example, ...obj spreads the properties of obj into a new object copy, cr
 
 ## 9,10,11,14)  Object Destructuring in JavaScript
 
-### A) Basic Syntax :
+1.  **Basic Syntax** :
 
 ```javascript
 const obj = {a: 1, b: 2, c: 3};
@@ -235,7 +229,7 @@ console.log(a, b, c); // Outputs: 1 2 3
 ```
 In this example, the properties a, b, and c of obj are extracted and assigned to the variables a, b, and c, respectively.
 
-### B) Assigning to New Variable Names:
+2. **Assigning to New Variable Names**:
 
 You can assign the properties of an object to new variable names:
 
@@ -247,7 +241,7 @@ console.log(first, second, third); // Outputs: 1 2 3
 
 In this example, the properties a, b, and c of obj are extracted and assigned to the new variables first, second, and third, respectively.
 
-### C) Default Values: 
+3. **Default Values**: 
 
 You can provide default values for properties that may not exist in the object:
 
@@ -258,7 +252,7 @@ console.log(a, b, c); // Outputs: 1 2 30
 ```
 In this example, the property c does not exist in obj, so the default value 30 is used.
 
-### D) Nested Objects: 
+4. **Nested Objects**: 
 
 You can destructure nested objects:
 
@@ -269,7 +263,7 @@ console.log(a, b, c, d); // Outputs: 1 2 3 4
 ```
 In this example, the properties c and d are extracted from the nested object and assigned to the variables c and d, respectively.
 
-### E) Nested Objects with New Variable Names:
+5. **Nested Objects with New Variable Names**:
 
 You can destructure nested objects and assign the properties to new variable names:
 
@@ -280,7 +274,7 @@ console.log(lowToday, highToday); // Outputs: 32 40
 ```
 In this example, the properties low and high from the nested today object are extracted and assigned to the new variables lowToday and highToday, respectively. This is done using the colon : syntax inside the nested destructuring {}.
 
-### F) Swapping Variables: 
+6. **Swapping Variables**: 
 
 Object destructuring can be used to swap variables:
 
@@ -291,7 +285,7 @@ console.log(a, b); // Outputs: 2 1
 ```
 In this example, the values of a and b are swapped using object destructuring.
 
-### G) Mutating Variables:
+7. **Mutating Variables**:
 
 Object destructuring can be used to mutate variables:
 
@@ -305,23 +299,23 @@ console.log(a, b); // Outputs: 4 5
 In this example, the original values of a and b are mutated (changed) to the values of the properties a and b from obj.
 #### Note the use of parentheses () around the destructuring assignment - this is necessary when you’re mutating existing variables, because without the parentheses, {a, b} = obj; is considered a block statement instead of an assignment operation.
 
-### H) Shallow Copy: 
+8. **Shallow Copy**: 
 
 It creates a new object and copies over the values of the original object. However, it only copies the reference (i.e., the address of the object). This can be done using Object.assign() and the spread operator (...).
 
-### I) Deep Copy: 
+9. **Deep Copy**: 
 
 It creates a new object and copies the values from the original object, including nested objects. This can be done using JSON.stringify() and JSON.parse().
 
 ### Note - 
 
-There is no concept of deep or shallow copy for primitive data types, as they are immutable. Shallow copies are used for “flat” objects, which contain only primitive values, while deep copies are used for “nested” objects, which contain non-primitive values.
+**There is no concept of deep or shallow copy for primitive data types, as they are immutable. Shallow copies are used for “flat” objects, which contain only primitive values, while deep copies are used for “nested” objects, which contain non-primitive values.**
 
 ## VVI
 
 ### Note - 
 
-We don't need to write `const` or `let` in the parameter when we do object or array destructuring in function parameters. This is because the destructuring assignment itself creates new variables within the function scope, so we don't need to explicitly declare them.
+**We don't need to write `const` or `let` in the parameter when we do object or array destructuring in function parameters. This is because the destructuring assignment itself creates new variables within the function scope, so we don't need to explicitly declare them.**
 
 ```javascript
 function greet({ name }) {
@@ -343,7 +337,7 @@ greet(person); // Output: Hello, John Doe!
 
 Array destructuring in JavaScript allows you to unpack values from arrays, or properties from objects, into distinct variables.
 
-*Basic Syntax*: The basic syntax of array destructuring is as follows:
+1. *Basic Syntax*: The basic syntax of array destructuring is as follows:
 
 ```javascript
 const arr = [1, 2, 3];
@@ -352,7 +346,7 @@ console.log(a, b, c); // Outputs: 1 2 3
 ```
 In this example, the elements of arr are unpacked into the variables a, b, and c.
 
-**Skipping Items**: You can skip items in an array:
+2. **Skipping Items**: You can skip items in an array:
 
 ```javascript
 const arr = [1, 2, 3];
@@ -361,7 +355,7 @@ console.log(a, c); // Outputs: 1 3
 ```
 In this example, the second element is skipped in the destructuring assignment.
 
-**Default Values**: You can provide default values for elements that may not exist in the array:
+3. **Default Values**: You can provide default values for elements that may not exist in the array:
 
 ```javascript
 const arr = [1, 2];
@@ -370,7 +364,7 @@ console.log(a, b, c); // Outputs: 1 2 30
 ```
 In this example, the third element does not exist in arr, so the default value 30 is used
 
-**Rest Items**: You can collect the rest of the items in an array using the rest syntax (`...`):
+4.**Rest Items**: You can collect the rest of the items in an array using the rest syntax (`...`):
 
 ```javascript
 const arr = [1, 2, 3, 4, 5];
@@ -380,7 +374,7 @@ console.log(a, b, rest); // Outputs: 1 2 [3, 4, 5]
 
 In this example, the rest of the items in arr are collected into a new array rest.
 
-**Swapping Variables**: Array destructuring can be used to swap variables:
+5. **Swapping Variables**: Array destructuring can be used to swap variables:
 
 ```javascript
 let a = 8, b = 6;
@@ -389,7 +383,7 @@ console.log(a, b); // Outputs: 6 8
 ```
 In this example, the values of a and b are swapped using array destructuring.
 
-**Mutating Variables**: Array destructuring can be used to mutate variables:
+6. **Mutating Variables**: Array destructuring can be used to mutate variables:
 
 ```javascript
 let a = 5, b = 6;
@@ -398,7 +392,8 @@ const arr = [3, 4];
 console.log(a, b); // Outputs: 3 4
 ```
 
-**Difference from Spread Operator**: One key difference between the spread operator and array destructuring is that the spread operator unpacks all contents of an array into a comma-separated list. Consequently, you cannot pick or choose which elements you want to assign to variables. Destructuring an array lets us do exactly that.
+Imp. ##Difference from Spread Operator**:
+ **One key difference between the spread operator and array destructuring is that the spread operator unpacks all contents of an array into a comma-separated list. Consequently, you cannot pick or choose which elements you want to assign to variables. Destructuring an array lets us do exactly that.**
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
