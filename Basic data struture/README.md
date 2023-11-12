@@ -205,19 +205,27 @@ Here's a dry run of your code:
    - Push `row` into `newArray`. Now `newArray` is `[[0, 0]]`.
 3. For `i = 1` (second row):
    - For `j = 0` and `j = 1`, push `0` into `row`. Now `row` is `[0, 0, 0, 0]`.
-   - Push `row` into `newArray`. But since `row` is a reference, not a copy, all instances
----
+   - Push `row` into `newArray`. But since `row` is a reference, not a copy, all instancesof `row` in `newArray` are updated. Now `newArray` is `[[0, 0, 0, 0], [0, 0, 0, 0]]`.
+4. For `i = 2` (third row):
+   - For `j = 0` and `j = 1`, push `0` into `row`. Now `row` is `[0, 0, 0, 0, 0, 0]`.
+   - Push `row` into `newArray`. Again, all instances of `row` in `newArray` are updated. Now `newArray` is `[[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]]`.
+To fix this, you should initialize `row` inside the first loop so that a new `row` array is created for each row in `newArray`. Here's the corrected code:
 
-### **Additional Question Notes**
 
-The issue is that you're using the same `row` array for each row in your `newArray`. When you use `push`, it doesn't create a new copy of the `row` array but rather adds a reference to the `row` array. So when you modify `row` in subsequent iterations, it also changes the `row` arrays that were already pushed into `newArray`.
+```javascript
+function zeroArray(m, n) {
+  let newArray = [];
+  let row = [];
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      row.push(0);
+    }
+    newArray.push(row);
+    row = [];
+  }
+  return newArray;
+}
 
-Here's a dry run of your code:
-
-1. Initialize `newArray` as an empty array and `row` as an empty array.
-2. For `i = 0` (first row):
-   - For `j = 0` and `j = 1` (two columns), push `0` into `row`. Now `row` is `[0, 0]`.
-   - Push `row` into `newArray`. Now `newArray` is `[[0, 0]]`.
-3. For `i = 1` (second row):
-   - For `j = 0` and `j = 1`, push `0` into `row`. Now `row` is `[0, 0, 0, 0]`.
-   - Push `row` into `newArray`. But since `row` is a reference, not a copy, all instances
+let matrix = zeroArray(3, 2);
+console.log(matrix);
+```
