@@ -53,3 +53,13 @@ checkSign(10);
 //NOTE - chatgpt make this code notes and then also write notes written in code specifically.
 
 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+ NOTES of intermediate scripting from here.
+
+
+
+
