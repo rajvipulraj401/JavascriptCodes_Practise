@@ -12,22 +12,25 @@
     7) Return the array containing the maximum values for each sub-array.
 */
 
-
-
 function largestOfFour(arr) {
-    let maxArray = [];
-    for (let i = 0; i < arr.length; i++) {
-        let maxValue = arr[i][0];
-        for (let j = 1; j < arr[i].length; j++) {
-            if (arr[i][j] > maxValue) {
-                maxValue = arr[i][j];
-            }
-        }
-        maxArray.push(maxValue);
+  let maxArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    let maxValue = arr[i][0];
+    for (let j = 1; j < arr[i].length; j++) {
+      if (arr[i][j] > maxValue) {
+        maxValue = arr[i][j];
+      }
     }
-    return maxArray;
+    maxArray.push(maxValue);
+  }
+  return maxArray;
 }
 
 // Example usage
-const ans = largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+const ans = largestOfFour([
+  [4, 5, 1, 3],
+  [13, 27, 18, 26],
+  [32, 35, 37, 39],
+  [1000, 1001, 857, 1],
+]);
 console.log(ans);
