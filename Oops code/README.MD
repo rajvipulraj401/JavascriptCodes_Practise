@@ -1,4 +1,3 @@
-Certainly! Let me address your points and provide the updated notes:
 
 ## Object-Oriented Programming (OOP) in JavaScript
 
