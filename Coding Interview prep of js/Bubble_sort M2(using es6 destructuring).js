@@ -11,8 +11,11 @@ function bubbleSort(array) {
     // Using another loop to traverse and compare adjacent elements
     for (let j = 0; j < array.length - 1 - i; j++) {
       // If the current element is greater than the next one, swap them using ES6 array destructuring
-      if (array[j] > array[j + 1])
-        [array[j], array[j + 1]] = [array[j + 1], array[j]]; // Using ES6 array destructuring to swap
+      if (array[j] > array[j + 1]) {
+        // Swap the elements using array destructuring
+        // Explanation: The line below swaps the values of array[j] and array[j + 1]
+        [array[j], array[j + 1]] = [array[j + 1], array[j]];
+      }
     }
   }
 
@@ -38,8 +41,20 @@ Steps (Using provided comments):
 1) Using a loop to iterate through the array.
 2) Using another loop to traverse and compare adjacent elements.
 3) If the current element is greater than the next one, swap them using ES6 array destructuring.
-4) After each inner loop traversal, the largest unsorted element is moved to its correct position at the end of the array.
-5) Continue this process until the entire array is sorted.
+4) Array Destructuring Explanation: The line below swaps the values of array[j] and array[j + 1].
+   [array[j], array[j + 1]] = [array[j + 1], array[j]];
+   - Right-hand side (RHS): [array[j + 1], array[j]]
+      - This creates a temporary array containing two elements: array[j + 1] and array[j].
+   - Left-hand side (LHS): [array[j], array[j + 1]]
+      - This is the destructuring assignment syntax.
+      - It says to take the values from the RHS array and assign them to the corresponding positions on the LHS array.
+   - Destructuring Assignment:
+      - The value at array[j + 1] on the RHS is assigned to array[j] on the LHS.
+      - The value at array[j] on the RHS is assigned to array[j + 1] on the LHS.
+   - Swapping:
+      - This effectively swaps the values of array[j] and array[j + 1].
+5) After each inner loop traversal, the largest unsorted element is moved to its correct position at the end of the array.
+6) Continue this process until the entire array is sorted.
 
 Example:
 Input: [13, 24, 9, 46, 23]
