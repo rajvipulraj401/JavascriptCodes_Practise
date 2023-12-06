@@ -6,16 +6,20 @@ Bubble Sort is a simple sorting algorithm that repeatedly steps through the list
 
 ### Steps (Using provided comments):
 
-1. Using another loop to track the total number of loop traversals.
-2. Using a loop to traverse and compare adjacent elements, then do swapping if needed.
-3. If the current element is greater than the next one, swap them.
-4. After each loop traversal, the largest unsorted element is moved to its correct position.
-5. Continue this process until there is only one element left in the array.
+1) Using another loop to track the total number of loop traversals.
+2) Using a loop to traverse and compare adjacent elements, then do swapping if needed.
+3) If the current element is greater than the next one, swap them and set the `didSwap` tracker to 1.
+4) After each inner loop traversal, check if any swapping occurred (`didSwap === 1`). If yes, the largest unsorted element is moved to its correct position at the end of the array.
+   - Optimization Explanation: If no swapping occurred in the inner loop, the array is already partially sorted. This optimization is especially beneficial in the best-case scenario, where the array is already sorted. It helps break out of unnecessary iterations, making the algorithm more efficient.
+
+5) Continue this process until there is only one element left in the array.
 
 ### Optimization Explanation:
 - The inner loop condition is `i < j - 1` for optimization purposes.
 - After each pass, the largest unsorted element is already in its correct position at the end of the array.
 - By using `j - 1`, we avoid unnecessary comparisons with the already sorted elements, making the algorithm more efficient.
+- The `didSwap` tracker helps optimize the algorithm further. If no swapping occurred in the inner loop, the array is already sorted, and we can break out of the outer loop, saving unnecessary iterations.
+
 
 ### Example:
 Input: [13, 24, 9, 46, 23]
@@ -47,24 +51,24 @@ Bubble Sort Method 2 is another implementation of the Bubble Sort algorithm. It 
 
 ### Steps (Using provided comments):
 
-1. Using a loop to iterate through the array.
-2. Using another loop to traverse and compare adjacent elements.
-3. If the current element is greater than the next one, swap them using ES6 array destructuring.
-   - **Array Destructuring Explanation:**
-     - The line below swaps the values of `array[j]` and `array[j + 1]`.
-     - `[array[j], array[j + 1]] = [array[j + 1], array[j]];`
-     - - **Right-hand side (RHS):** `[array[j + 1], array[j]]`
-       - This creates a temporary array containing two elements: `array[j + 1]` and `array[j]`.
-     - - **Left-hand side (LHS):** `[array[j], array[j + 1]]`
-       - This is the destructuring assignment syntax.
-       - It says to take the values from the RHS array and assign them to the corresponding positions on the LHS array.
-     - - **Destructuring Assignment:**
-       - The value at `array[j + 1]` on the RHS is assigned to `array[j]` on the LHS.
-       - The value at `array[j]` on the RHS is assigned to `array[j + 1]` on the LHS.
-     - - **Swapping:**
-       - This effectively swaps the values of `array[j]` and `array[j + 1]`.
-4. After each inner loop traversal, the largest unsorted element is moved to its correct position at the end of the array.
-5. Continue this process until the entire array is sorted.
+1) Using a loop to iterate through the array.
+2) Using another loop to traverse and compare adjacent elements.
+3) If the current element is greater than the next one, swap them using ES6 array destructuring and set the `didSwap` tracker to 1.
+   - Array Destructuring Explanation: The line below swaps the values of array[j] and array[j + 1].
+     [array[j], array[j + 1]] = [array[j + 1], array[j]];
+     - Right-hand side (RHS): [array[j + 1], array[j]]
+        - This creates a temporary array containing two elements: array[j + 1] and array[j].
+     - Left-hand side (LHS): [array[j], array[j + 1]]
+        - This is the destructuring assignment syntax.
+        - It says to take the values from the RHS array and assign them to the corresponding positions on the LHS array.
+     - Destructuring Assignment:
+        - The value at array[j + 1] on the RHS is assigned to array[j] on the LHS.
+        - The value at array[j] on the RHS is assigned to array[j + 1] on the LHS.
+     - Swapping:
+        - This effectively swaps the values of array[j] and array[j + 1].
+4) After each inner loop traversal, check if any swapping occurred (`didSwap === 1`). If yes, the largest unsorted element is moved to its correct position at the end of the array.
+   - Optimization Explanation: If no swapping occurred in the inner loop, the array is already partially sorted. This optimization is especially beneficial in the best-case scenario, where the array is already sorted. It helps break out of unnecessary iterations, making the algorithm more efficient.
+5) Continue this process until the entire array is sorted.
 
 ### Example:
 Input: [13, 24, 9, 46, 23]

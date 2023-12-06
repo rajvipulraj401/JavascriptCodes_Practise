@@ -20,7 +20,7 @@
 
 // Code
 function selectionSort(array) {
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length-1; i++) { // no need to to check the last element only till 3rd index when length=5
     let min = array[i];
     let minIndex = i;
 

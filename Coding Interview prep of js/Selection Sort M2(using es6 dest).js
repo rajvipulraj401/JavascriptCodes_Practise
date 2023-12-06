@@ -6,7 +6,7 @@ function selectionSort(arr) {
   const n = arr.length;
 
   // Iterate through the array
-  for (let i = 0; i < n - 1; i++) {
+  for (let i = 0; i < n - 1; i++) { // no need to to check the last element only till 3rd index when length=5
     // Assume the current index is the minimum
     let minIndex = i;
 
