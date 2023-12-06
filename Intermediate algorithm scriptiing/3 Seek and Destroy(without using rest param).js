@@ -2,7 +2,8 @@
 // Method 2 (without using rest parameter)
 function destroyer(arr) {
   // Retrieve additional arguments (others) using the 'arguments' object
-  const others = Array.from(arguments).slice(1);
+  // const others = Array.from(arguments).slice(1);
+  const others = [...arguments].slice(1);
 
   // Logic:
 
