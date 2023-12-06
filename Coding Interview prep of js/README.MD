@@ -188,5 +188,87 @@ The goal is to sort an array using the Selection Sort algorithm.
 **Final Sorted Array:** [11, 13, 23, 24, 46]
 
 
+## 5. Insertion Sort (method 1)
+
+## Notes
+It is a sorting process where we take an element and place it in its correct position in the array.
+
+## Logic
+In this sorting process:
+- We iterate through the array, starting from the second index (`i = 1`) as the first element is considered sorted.
+- For each element, we compare it with the preceding elements and swap if necessary to place it in its correct sorted position.
+- This process continues until the entire array is traversed, and each element is in its appropriate position.
+
+## Steps
+
+1) Initialize a loop to iterate through the array, starting from the second index (`i = 1`) as the first element is considered sorted.
+
+2) Set `currentIndex` to the current loop index `i`.
+
+3) Enter a while loop that continues as long as `currentIndex` is greater than 0 and the element at `arr[currentIndex]` is smaller than the element at `arr[currentIndex - 1]`.
+
+4) Within the while loop:
+   - Swap the current element with its preceding element.
+   - Move to the preceding index for the next comparison by decrementing `currentIndex`.
+
+5) Continue the outer loop until the entire array is traversed, and each element is placed in its correct sorted position.
+
+## Dry Run
+
+Initial Array: [14, 9, 6]
+
+Pass 1:
+  Current Element: 9 (at index 1)
+  Compare 9 with 14 (at index 0), swap them -> [9, 14, 6]
+
+Pass 2:
+  Current Element: 6 (at index 2)
+  Compare 6 with 14 (at index 1), swap them -> [9, 6, 14]
+  Compare 6 with 9 (at index 0), swap them -> [6, 9, 14]
+
+Final Sorted Array: [6, 9, 14]
 
 
+
+
+
+## 6. Insertion Sort (method 2 using ES6 Destructuring for Swapping)
+
+## Notes
+What is an Insertion Sort?
+It is a sorting process where each element is taken and placed in its correct position in the array.
+
+## Logic
+In this sorting process:
+- We iterate through the array, starting from the second index (`i = 1`) as the first element is considered sorted.
+- For each element, we compare it with the preceding elements and swap if necessary to place it in its correct sorted position.
+- This process continues until the entire array is traversed, and each element is in its appropriate position.
+
+## Steps
+
+1) Initialize a loop to iterate through the array, starting from the second index (`i = 1`) as the first element is considered sorted.
+
+2) For each element, set `minIndex` to the current loop index `i`.
+
+3) Enter a loop that continues as long as `minIndex` is greater than 0 and the element at `arr[minIndex]` is smaller than the element at `arr[minIndex - 1]`.
+
+4) Within the loop:
+   - Swap the current element with its preceding element using ES6 array destructuring.
+   - Move to the preceding index for the next comparison by decrementing `minIndex`.
+
+5) Continue the outer loop until the entire array is traversed, and each element is placed in its correct sorted position.
+
+## Dry Run
+
+Initial Array: [14, 9, 6]
+
+Pass 1:
+  Current Element: 9 (at index 1)
+  Compare 9 with 14 (at index 0), swap them -> [9, 14, 6]
+
+Pass 2:
+  Current Element: 6 (at index 2)
+  Compare 6 with 14 (at index 1), swap them -> [9, 6, 14]
+  Compare 6 with 9 (at index 0), swap them -> [6, 9, 14]
+
+Final Sorted Array: [6, 9, 14]
