@@ -138,3 +138,51 @@ The goal is to sort an array using the Selection Sort algorithm.
 
 **Final Sorted Array:** [11, 13, 23, 24, 46]
 
+
+## 4. Selection Sort Algorithm (Method 2 using destructuring for swapping)
+
+## What is Selection Sort?
+
+Selection Sort is a sorting algorithm that works by repeatedly selecting the minimum element from the unsorted part of the array and placing it at the beginning. This process is repeated until the entire array is sorted.
+
+## Logic
+
+The goal is to sort an array using the Selection Sort algorithm.
+
+## Steps
+
+1. **Loop through the array:** Use a loop to iterate through the array.
+   
+2. **Initialize variables:** Declare `minIndex` and initialize it with the current index `i`.
+   
+3. **Find the minimum:** Use another loop (`j` from `i+1`) to find the minimum element in the remaining unsorted array.
+   
+4. **Swap elements using destructuring:** Check if the current element is less than the minimum. If true, swap the elements using array destructuring.
+   
+5. **Repeat until sorted:** Continue this process until the entire array is sorted.
+
+## Dry Run
+
+**Initial Array:** [13, 24, 11, 46, 23]
+
+**Pass 1:**
+  - Minimum: 11 (at index 2)
+  - Swap 13 and 11 -> [11, 24, 13, 46, 23]
+
+**Pass 2:**
+  - Minimum: 13 (at index 2)
+  - Swap 24 and 13 -> [11, 13, 24, 46, 23]
+
+**Pass 3:**
+  - Minimum: 23 (at index 4)
+  - Swap 46 and 23 -> [11, 13, 24, 23, 46]
+
+**Pass 4:**
+  - Minimum: 24 (at index 2)
+  - Swap 24 and 24 (no change)
+
+**Final Sorted Array:** [11, 13, 23, 24, 46]
+
+
+
+
