@@ -18,7 +18,10 @@
 6) Continue this process until the entire array is sorted.
 */
 
-// Code
+// Selection Sort code m1
+
+//time complexity - worst case O(n2) and best case O(n)
+
 function selectionSort(array) {
   for (let i = 0; i < array.length-1; i++) { // no need to to check the last element only till 3rd index when length=5
     let min = array[i];

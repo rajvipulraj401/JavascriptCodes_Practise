@@ -1,11 +1,8 @@
 // Bubble Sort Algorithm
 
-/* Logic 
-- In this sorting, we push the maximum to the last by doing adjacent swapping.
-- We repeat this process until there is only one element left in the array.
-*/
 
-// Bubble Sort Algorithm
+//time complexity - worst case O(n2) and best case O(n)
+
 function bubbleSort(array) {
   // Using another loop to track the total number of loop traversals
   for (let j = array.length; j > 0; j--) {

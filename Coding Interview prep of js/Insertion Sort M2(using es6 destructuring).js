@@ -1,5 +1,8 @@
 // Insertion sort function using ES6 destructuring for swapping
 
+
+
+//time complexity - worst case O(n2) and best case O(n)
 function insertionSort(arr) {
   const n = arr.length;
 

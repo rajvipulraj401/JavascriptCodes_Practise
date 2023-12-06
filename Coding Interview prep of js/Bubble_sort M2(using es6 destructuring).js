@@ -1,10 +1,7 @@
 // Bubble Sort Algorithm - Method 2
 
-/* Logic 
-- In this sorting, we repeatedly traverse the array, comparing and swapping adjacent elements to push the maximum to the last.
-- We repeat this process until the entire array is sorted.
-*/
 
+//time complexity - worst case O(n2) and best case O(n)
 
 // Using a loop to iterate through the array
 function modifiedBubbleSort(array) {

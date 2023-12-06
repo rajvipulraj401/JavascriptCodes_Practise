@@ -1,5 +1,8 @@
 
 function insertionSort(arr) {
+
+//time complexity - worst case O(n2) and best case O(n)
+
   let n = arr.length;
 
 for ( let i=1; i<n;i++){

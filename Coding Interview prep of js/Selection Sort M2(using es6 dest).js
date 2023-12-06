@@ -1,5 +1,7 @@
 
 //selection sort method 2 (using es6)
+//time complexity - worst case O(n2) and best case O(n)
+
 // Function to perform Selection Sort on an array
 function selectionSort(arr) {
   // Get the length of the array
