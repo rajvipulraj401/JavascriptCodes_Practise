@@ -1,7 +1,8 @@
 // Bubble Sort Algorithm
 
-
 //time complexity - worst case O(n2) and best case O(n)
+
+
 
 function bubbleSort(array) {
   // Using another loop to track the total number of loop traversals

@@ -262,6 +262,7 @@ In this sorting process:
 
 Initial Array: [14, 9, 6]
 
+
 Pass 1:
   Current Element: 9 (at index 1)
   Compare 9 with 14 (at index 0), swap them -> [9, 14, 6]
