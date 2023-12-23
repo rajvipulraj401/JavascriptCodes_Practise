@@ -15,8 +15,6 @@ for ( let i=1; i<n;i++){
  AND then WE CAN do the swapping in the loop .*/
 
 
-
-
 while (currentIndex > 0 && arr[currentIndex] < arr[currentIndex - 1]) {
       // Swap the current element with its preceding element
       let temp = arr[currentIndex];
