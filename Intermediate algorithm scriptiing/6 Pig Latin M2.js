@@ -1,47 +1,38 @@
-
 // pig latin M2(using findIndexOf method).
 
-
 function translatePigLatin(str) {
+  const vowels = ["a", "e", "i", "o", "u"];
 
-const vowels = [ "a","e","i","o","u"];
+  const first = vowels.includes(str[0]);
 
-const first = vowels.includes(str[0]);
+  if (first) {
+    return str + "way";
+  } else {
+    // now when the first chr is not vowel then it will be consonant then we have to keep checking it till we get the character as vowel here .
 
-        if(first){
-          return str+"way";
-        }
-    
-    else {
-// now when the first chr is not vowel then it will be consonant then we have to keep checking it till we get the character as vowel here .
+    // const index = str.split("").findIndex((char)=>vowels.  includes(char));
 
-// const index = str.split("").findIndex((char)=>vowels.  includes(char));
+    const index = [...str].findIndex((char) => vowels.includes(char));
+    // const index = str.split("").findIndex((char)=>vowels.includes(char));
 
+    // we need to know the index where we get the vowel for the first time .
 
-const index = [...str].findIndex((char)=>vowels.includes(char));
-
-// we need to know the index where we get the vowel for the first time .
-
-
-if (index === -1){
-  // if there is now vowel in the chr then 
-  // ex - rhythm  so we return rythmay.
-  return str + "ay";
-
-}
-// if there is a vowel at any index in the chr then 
-const sliced = str.slice(0, index);
-return str.slice(index)+sliced+"ay";
+    if (index === -1) {
+      // if there is no vowel in the chr then
+      // ex - rhythm  so we return rythmay.
+      return str + "ay";
+    }
+    // if there is a vowel at any index in the chr then we will take out the elements from 
+//start till that point using slice
+    const sliced = str.slice(0, index);
+    return str.slice(index) + sliced + "ay";
+  }
 }
 
- }
-  
-// console.log(translatePigLatin("glwove"));
-console.log(translatePigLatin("rhythm"));
-
+// console.log(translatePigLatin("glwove"));  //oveglway
+console.log(translatePigLatin("rhythm")); //rhythmay
 
 // logic (without any method)
-
 
 /* 
 

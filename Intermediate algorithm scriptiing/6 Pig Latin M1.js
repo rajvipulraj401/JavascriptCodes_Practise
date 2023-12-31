@@ -1,4 +1,4 @@
-// TranslatePigLatin (without any method)
+// 6 PigLatin M1(without any method)
 
 function translatePigLatin(str) {
   // Define an array of vowels for checking

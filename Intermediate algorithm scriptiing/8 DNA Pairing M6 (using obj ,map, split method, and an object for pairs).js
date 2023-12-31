@@ -1,4 +1,3 @@
-
 // DNA Pairing M6 (using map, split method, and an object for pairs)
 
 function pairElement(str) {
@@ -6,12 +5,11 @@ function pairElement(str) {
   const pairsObj = { G: "C", C: "G", A: "T", T: "A" };
 
   // Create an array of pairs for each DNA element
-  const pairs = str.split("").map(char => [char, pairsObj[char]]);
+  const pairs = str.split("").map((char) => [char, pairsObj[char]]);
 
   return pairs; // Return the array of pairs.
 }
 
-// Test the function with an example
 console.log(pairElement("GCX"));
 
 // Logic (using map, split method, and an object for pairs)

@@ -18,8 +18,60 @@ function pairElement(str) {
 
   return pairs;
 }
+// using do while
+// let i =0;
+// do {
+//   if (str[i] === "G") {
+//     pairs.push(["G", "C"]);
+//   } else if (str[i] === "C") {
+//     pairs.push(["C", "G"]);
+//   } else if (str[i] === "A") {
+//     pairs.push(["A", "T"]);
+//   } else if (str[i] === "T") {
+//     pairs.push(["T", "A"]);
+//   }
 
-// Test the function with an example
+//   // Increment the index
+//   i++;
+// } while (i < str.length);
+
+// return pairs;
+// }
+
+//  using Switch case
+/* for (let i=0 ;i<str.length ;i++){
+switch (str[i]){
+// kispe swich case lagana hai str[i] pr 
+
+case "G":
+// agr case g hua toh kya
+ pairs.push(["G","C"]);
+ break;
+
+case "C":
+  pairs.push(["C","G"]);
+  break;
+
+case "A":
+  pairs.push(["A","T"]);
+  break;
+
+case "T":
+  pairs.push(["T","A"]);
+  break;  
+
+  default :
+  pairs.push(["NA","NA"]);
+  console.log(`${str[i]} Nota pair use other`);
+  break;
+
+  }
+
+}
+
+  return pairs;
+}
+*/
 console.log(pairElement("GCG"));
 
 // Logic (using empty array and if-else)

@@ -1,7 +1,4 @@
-
-// Smallest Common Multiple M1using (lcm of two number formula)
-
-
+		// 14 Smallest Common Multiple M2using (lcm of two number formula)
 // Function to find the HCF of two numbers using repeated division
 function hcf(a, b) {
   while (b !== 0) {
@@ -11,13 +8,12 @@ function hcf(a, b) {
   }
   return a; // Return the HCF
 }
-
-// Function to find the LCM of two numbers
+	// Function to find the LCM of two numbers
 function lcm(a, b) {
   return (a * b) / hcf(a, b);
 }
 
-// Function to find the LCM of an array of numbers
+	// Function to find the LCM of an array of numbers
 function smallestCommons(arr) {
 
   let smallno = Math.min(...arr);
@@ -35,7 +31,6 @@ function smallestCommons(arr) {
 
   return multiple; // Return the final multiple
 }
-
 console.log(smallestCommons([1, 5]));
 
 

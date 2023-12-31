@@ -1,41 +1,36 @@
 //  DNA Pairing (using empty array and SwitchCase);
 function pairElement(str) {
+  // let's create an empty array to store all the small pairs.
+  const pairs = [];
 
-// let's create an empty array to store all the small pairs.
-const pairs = [];
+  // now let's loop over the given string in order to match all the pairs one by one .
+  for (let i = 0; i < str.length; i++) {
+    switch (str[i]) {
+      // kispe swich case lagana hai str[i] pr
 
-// now let's loop over the given string in order to match all the pairs one by one .
+      case "G":
+        // agr case g hua toh kya
+        pairs.push(["G", "C"]);
+        break;
 
-for (let i=0 ;i<str.length ;i++){
+      case "C":
+        pairs.push(["C", "G"]);
+        break;
 
-switch (str[i]){
-// kispe swich case lagana hai str[i] pr 
+      case "A":
+        pairs.push(["A", "T"]);
+        break;
 
-case "G":
-// agr case g hua toh kya
- pairs.push(["G","C"]);
- break;
+      case "T":
+        pairs.push(["T", "A"]);
+        break;
 
-case "C":
-  pairs.push(["C","G"]);
-  break;
-
-case "A":
-  pairs.push(["A","T"]);
-  break;
-
-case "T":
-  pairs.push(["T","A"]);
-  break;  
-
-  default :
-  pairs.push(["NA","NA"]);
-  console.log(`${str[i]} Nota pair use other`);
-  break;
-
+      default:
+        pairs.push(["NA", "NA"]);
+        console.log(`${str[i]} Nota pair use other`);
+        break;
+    }
   }
-
-}
 
   return pairs;
 }
