@@ -6,6 +6,11 @@ Welcome to the JavaScript Practice Repository!
 
 This repository is a collection of JavaScript code snippets that I use for practice and experimentation. Each code snippet focuses on different topics within JavaScript programming, covering arrays, strings, ES6 features, object-oriented programming (OOP), data structures, and more.
 
+
+MORE OVER
+
+`It has one folder freeCodeCamp which has code specifically focused on javascript which i have practised from freeCodeCamp and then another FOLDER --SHEET which is more of like dsa specific`
+
 ## Code Categories
 
 ### 1. Arrays
