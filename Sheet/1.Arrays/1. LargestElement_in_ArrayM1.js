@@ -4,6 +4,7 @@
 // Code
 const largest = function(arr) {
   let ans = -100000;
+// let ans = -Infinity
   
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > ans)

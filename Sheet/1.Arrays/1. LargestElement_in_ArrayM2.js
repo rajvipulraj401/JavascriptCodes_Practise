@@ -1,0 +1,52 @@
+// Find Largest Element in Array (Method 2 using sort method)
+
+// Code
+const largestUsingSort = function(arr) {
+  // Sort the array in ascending order using the sort method
+  arr.sort((a, b) => a - b);
+
+  // The largest element will be at the end of the sorted array
+  return arr[arr.length - 1];
+}
+
+// Test the function with an example array
+const arr = [1, 2, 3, 4, 5];
+console.log(largestUsingSort(arr));
+
+/* 
+
+Logic-----
+
+I have an array, and I want to find the largest element in that array. For example, if I have an array of size 5: [1, 2, 3, 4, 5], then the output will be 5, as 5 is the largest element in the array.
+
+*/
+
+/* 
+Steps (Method 2 using sort):
+
+1) The `sort` method is used to arrange the elements of an array in ascending order.
+2) By default, it sorts elements as strings (lexicographically).
+3) To sort numerically, we provide a comparison function as an argument to `sort`.
+   - The comparison function takes two parameters (`a` and `b`).
+   - If the function returns a negative value, `a` comes before `b`.
+   - If the function returns a positive value, `b` comes before `a`.
+   - If the function returns 0, the order remains unchanged.
+4) In our case, `a - b` ensures numerical sorting.
+5) After sorting, the largest element will be at the end of the sorted array.
+6) Return the last element of the sorted array as the largest element.
+
+*/
+
+/* 
+Dry Run:
+
+Given Example: arr = [1, 2, 3, 4, 5]
+
+Step 1: Sort the array
+Sorted array: [1, 2, 3, 4, 5]
+
+Step 2: Largest element is the last element of the sorted array
+Largest element: 5
+
+Final largest element: 5
+*/
