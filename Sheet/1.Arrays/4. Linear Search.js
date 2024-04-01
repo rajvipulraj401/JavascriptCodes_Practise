@@ -1,0 +1,68 @@
+// Linear Search (Method 1 optimal)
+
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+// Code
+const linearSearch = function(arr, num) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === num) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+// Test the function with an example array
+const arr = [2, 3, 1, 4, 1];
+console.log(linearSearch(arr, 7));
+
+// Logic
+/* 
+I have given an array "arr", "n" representing the number of integers in the array, and an integer "num". I need to check if that array contains "num" using linear search. If "num" is present, return its index; otherwise, return -1.
+*/
+
+// Steps
+/* 
+1) Iterate through the array.
+2) For each element, compare it with "num".
+3) If found, return its index.
+4) If not found after iterating through the entire array, return -1.
+*/
+
+// Constraints
+/* 
+Expected Time Complexity: O(n), where 'n' is the size of the input array 'a'.
+Constraints:
+1 <= n <= 10^6
+1 <= arr[i] <= 1000
+Time Limit: 1 sec
+*/
+
+// Dry Run
+/*
+Given Example: arr = [2, 3, 1, 4, 1]
+num = 7
+
+Iteration 1:
+arr[0] = 2, num = 7
+2 is not equal to 7, continue.
+
+Iteration 2:
+arr[1] = 3, num = 7
+3 is not equal to 7, continue.
+
+Iteration 3:
+arr[2] = 1, num = 7
+1 is not equal to 7, continue.
+
+Iteration 4:
+arr[3] = 4, num = 7
+4 is not equal to 7, continue.
+
+Iteration 5:
+arr[4] = 1, num = 7
+1 is not equal to 7, continue.
+
+Output: -1
+*/

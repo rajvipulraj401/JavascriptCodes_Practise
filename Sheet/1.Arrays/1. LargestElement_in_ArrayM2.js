@@ -1,5 +1,8 @@
 // Find Largest Element in Array (Method 2 using sort method)
 
+// Time Complexity: O(n log n) - due to the sorting operation
+// Space Complexity: O(1)
+
 // Code
 const largestUsingSort = function(arr) {
   // Sort the array in ascending order using the sort method
@@ -19,10 +22,22 @@ Logic-----
 
 I have an array, and I want to find the largest element in that array. For example, if I have an array of size 5: [1, 2, 3, 4, 5], then the output will be 5, as 5 is the largest element in the array.
 
+Expected Time Complexity:
+O(n), Where ‘n’ is the size of an input array ‘arr’.
+Constraints :
+1 <= 'n' <= 10^5
+1 <= 'arr[i]' <= 10^9
+
+Time Limit: 1 sec
 */
 
 /* 
 Steps (Method 2 using sort):
+
+0) we will use  arr.sort to make the array in ascending order .
+example [5,2,1,4,3]
+becomes [1,2,3,4,5]
+return arr.length-1
 
 1) The `sort` method is used to arrange the elements of an array in ascending order.
 2) By default, it sorts elements as strings (lexicographically).

@@ -1,10 +1,11 @@
-```javascript
-// Find Largest Element in Array (Method 1 using loops)
+// Find Largest Element in Array (Method 1)
+
+// Time Complexity: O(n)
+// Space Complexity: O(1)
 
 // Code
 const largest = function(arr) {
   let ans = -100000;
-// let ans = -Infinity
   
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > ans)
@@ -25,6 +26,13 @@ Logic-----
 I have an array i have to find the largest element in that array for example if  i  have array of size 5 
 [1,2,3,4,5]  then the output will be 5 as 5 is the largest element in the array.
 
+Expected Time Complexity:
+O(n), Where ‘n’ is the size of an input array ‘arr’.
+Constraints :
+1 <= 'n' <= 10^5
+1 <= 'arr[i]' <= 10^9
+
+Time Limit: 1 sec
 */
 
 /* 
@@ -70,4 +78,3 @@ arr[4] = 5
 
 Final largest element: 5
 */
-```
