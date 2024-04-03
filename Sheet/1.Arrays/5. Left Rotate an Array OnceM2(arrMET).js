@@ -8,9 +8,8 @@ array only no extra space .
  rotation)
 */
 
-// Time Complexity: O(n)+O(n) = O(2n) but 2 will be ignored so O(2n)
-// This code is not better for bigger data set as it will be twice iterating the array
-// so array methods should be used carefully
+// Time Complexity: O(n)
+// This code is not better for bigger data set as array methods is changing index one by one
 // Space Complexity: O(1)
 /* NOTE - space complexity is O(1) as we are not using any extra space (extra datastructure) but  
 yes we are modifying the array so the space used to solve the problem is O(n)  .
