@@ -20,10 +20,10 @@ Yes that array is already there but we are using it .
 
   
   const  rotateArray = arr=> {
-  const temp = arr[0];
+  const temp =   arr.shift();
 
   // Shift all elements to the left by one position
-  arr.shift();
+
 
   // Move the first element to the end
   arr.push(temp);

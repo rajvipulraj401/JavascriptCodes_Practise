@@ -10,6 +10,10 @@ Yes that array is already there but we are using it .
 
 // Code
 const rotateArray = arr => {
+
+   if (arr.length <= 1) {
+        return arr; // No need to rotate if array has 0 or 1 element
+    }
   const temp = arr[0];
 
   for (let i = 1; i < arr.length; i++) {
