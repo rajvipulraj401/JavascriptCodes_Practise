@@ -1,11 +1,15 @@
 ```javascript
-// Find Second Largest and Second Smallest Elements in Array (Method 1 optimal)
+// Find Second Largest and Second Smallest Elements in Array (Method 3 optimal)
 
 // Time Complexity: O(n)
 // Space Complexity: O(1)
 
 // Code
 const secondLargAndMin = function(arr) {
+
+if(arr.length<=1){
+// cause if there are just one element  then it can't be compared and also in case of empty
+return arr }
   let max1 = -Infinity;
   let max2 = -Infinity;
   let min1 = Infinity;
