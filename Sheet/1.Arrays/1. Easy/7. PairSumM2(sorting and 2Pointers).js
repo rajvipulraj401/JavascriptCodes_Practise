@@ -1,0 +1,95 @@
+// Pair Sum (Method 2 Sorting and Two Pointers)
+
+/* 
+Time Complexity: O(nlogn)
+Space Complexity: O(n)
+*/ 
+
+// Code
+
+const pairSum = function(arr, sum) {
+  // We get an array 'arr' and a sum 'sum'
+  const pairs = [];
+  
+  // Check if the array has less than 2 elements
+  if (arr.length <= 1) return pairs;
+
+  // Sort the array
+  arr.sort((a, b) => a - b);
+  
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left < right) {
+    const currentSum = arr[left] + arr[right];
+
+    // Skip duplicates
+    if (left > 0 && right < arr.length - 1 && arr[left] === arr[left - 1] && arr[right] === arr[right + 1]) {
+      left++;
+      right--;
+    }
+
+    if (currentSum === sum) {
+      pairs.push([arr[left], arr[right]]);
+           // how we can do without push method  
+   	// Ans - we will just loop and copy in the new array or we can use any other method  like concat , spread operator .
+ 
+      left++;
+      right--;
+    } else if (currentSum < sum) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+  
+  return pairs;
+}
+
+// Test the function with an example array
+const arr = [2, 3, 3, 2, 3, 2];
+console.log(pairSum(arr, 5));
+
+// Logic
+/* 
+Given an array 'arr' and a target sum 'sum', we need to find all pairs in the array whose sum equals the target sum.
+Each pair should be sorted in ascending order. If there are duplicates, skip them to avoid duplicate pairs in the result.
+*/
+
+// Steps
+/* 
+1) Sort the array in ascending order.
+2) Initialize two pointers 'left' and 'right' at the start and end of the array, respectively.
+3) Iterate through the array using the two pointers to find pairs whose sum equals the target sum.
+4) While iterating, skip duplicates to avoid duplicate pairs in the result.
+5) If a pair is found, add it to the result array.
+6) Return the result array containing all pairs whose sum equals the target sum.
+*/
+
+// Constraints
+/* 
+1 <= N <= 10^3
+-10^5 <= ARR[i] <= 10^5
+-2 * 10^5 <= S <= 2 * 10^5
+*/
+
+// Dry Run
+/*
+Given Example: arr = [2, 3, 3, 2, 3, 2], sum = 5
+
+Sorted array: [2, 2, 2, 3, 3, 3]
+
+left = 0, right = 5
+
+Iteration 1:
+currentSum = 2 + 3 = 5 (sum)
+Push [2, 3] to pairs
+left = 1, right = 4
+
+Iteration 2:
+currentSum = 2 + 3 = 5 (sum)
+Push [2, 3] to pairs
+left = 2, right = 3
+
+Output: [[2, 3], [2, 3]]
+*/
