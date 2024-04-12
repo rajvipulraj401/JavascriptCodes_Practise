@@ -84,7 +84,7 @@ function reverseStringInPlace(str) {
 1) Use string slicing to reverse the input string.
 2) Return the reversed string.
 
-**Time Complexity**: O(n^2) - where n is the length of the input string.  
+**Time Complexity**: O(n) - where n is the length of the input string.  
 **Space Complexity**: O(n) - extra space is required for the string `reversedStr`.
 ```javascript
 function reverseStringInPlace(str) {
@@ -100,7 +100,7 @@ function reverseStringInPlace(str) {
 1) Use string `substring` to reverse the input string character by character.
 2) Return the reversed string.
 
-**Time Complexity**: O(n^2) - where n is the length of the input string.  
+**Time Complexity**: O(n) - where n is the length of the input string.  
 **Space Complexity**: O(n) - extra space is required for the string `reversedStr`.
 ```javascript
 function reverseStringWithSubstring(str) {
@@ -116,7 +116,7 @@ function reverseStringWithSubstring(str) {
 1) Use string `slice` to reverse the input string character by character.
 2) Return the reversed string.
 
-**Time Complexity**: O(n^2) - where n is the length of the input string.  
+**Time Complexity**: O(n) - where n is the length of the input string.  
 **Space Complexity**: O(n) - extra space is required for the string `reversedStr`.
 ```javascript
 function reverseStringWithSlice(str) {
