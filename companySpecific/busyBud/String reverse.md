@@ -1,4 +1,4 @@
-Certainly! Here's the full list with all the methods and their explanations, complexities, and code snippets:
+
 
 ### Method 1 (Brute Force)
 1) Iterate through the input string from the end.
