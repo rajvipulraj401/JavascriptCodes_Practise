@@ -38,20 +38,20 @@ function FirstReverse(str) {
 4) Join the array back into a string.
 
 **Time Complexity**: O(n) - where n is the length of the input string.  
-**Space Complexity**: O(1) - extra space is required for the array `str`.
+**Space Complexity**: O(n) - extra space is required for the array `strArr`.
 ```javascript
 function FirstReverse(str) {
-    str = str.split('');
+    const strArr = str.split('');
     let left = 0;
-    let right = str.length - 1;
+    let right = strArr.length - 1;
 
     while (left < right) {
-        [str[left], str[right]] = [str[right], str[left]];
+        [strArr[left], strArr[right]] = [strArr[right], strArr[left]];
         left++;
         right--;
     }
 
-    return str.join('');
+    return strArr.join('');
 }
 ```
 
@@ -61,15 +61,15 @@ function FirstReverse(str) {
 3) Join the array back into a string.
 
 **Time Complexity**: O(n) - where n is the length of the input string.  
-**Space Complexity**: O(1) - extra space is required for the array `strArr`.
+**Space Complexity**: O(n) - extra space is required for the array `strArr`.
 ```javascript
 function reverseStringInPlace(str) {
-    let strArr = str.split('');
+    const strArr = str.split('');
     let left = 0;
     let right = strArr.length - 1;
 
     while (left < right) {
-        let temp = strArr[left];
+        const temp = strArr[left];
         strArr[left] = strArr[right];
         strArr[right] = temp;
         left++;
