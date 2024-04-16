@@ -1,125 +1,106 @@
-// Pair Sum (Method 1 Brute Force Solution)
+// Pair Sum (Method 1 Brute Force)
 
 /* 
 Time Complexity: O(n^2)
-Space Complexity: O(n)
-
+Space Complexity: O(1)
 */ 
+
 // Code
 
-const pairSum = function(arr, sum){
-  // we will get an array and a sum
-  
+const pairSum = function(arr, sum) {
+  // We get an array 'arr' and a sum 'sum'
   const pairs = [];
-     
-  // creating an extra array to store pairs.
   
-  if(arr.length<=1) return pairs;
+  // Check if the array has less than 2 elements
+  if (arr.length <= 1) return pairs;
+
+  // Sort the array
+  arr.sort((a, b) => a - b);
   
-    arr.sort((a, b) => a - b);
- 
-  
-  
- // Iterate through the array to find pairs
+  // Initialize an empty array to store pairs
+  const arr1 = [];
+
+  // Iterate through the array to find pairs
   for (let i = 0; i < arr.length - 1; i++) {
     
-    // Skip duplicates
-    
-    if (i > 0 && arr[i] === arr[i - 1]) continue;
-    
-    // Store the first number of the pair
-    let firstNum = arr[i];
-    // Iterate through the remaining elements of the array
     for (let j = i + 1; j < arr.length; j++) {
-      
-      // Skip duplicates
-      
-      if (j > i + 1 && arr[j] === arr[j - 1]) continue;
-      
-      // Store the second number of the pair
-      
-      let secondNum = arr[j];
-     
-      // Check if the pair's sum equals the given sum
-      
-      if (firstNum + secondNum === sum) {
-      
-        pairs.push([firstNum, secondNum]);
-        
+      if (arr[j] + arr[i]=== sum) {
+        arr1.push([arr[i], arr[j]]);
       }
     }
   }
-
-  return pairs;
+  
+  return arr1;
 }
 
 // Test the function with an example array
-const arr = [2, -2, -3, 3, 3, -2];
-console.log(pairSum(arr, 0));
+const arr = [2, 2, 2, 3, 2];
+console.log(pairSum(arr, 4));
 
 
-// Logic
-/* 
-Given an array 'arr' and a target sum 'sum', we need to find all pairs in the array whose sum equals the target sum.
-Each pair should be sorted in ascending order. If there are duplicates, skip them to avoid duplicate pairs in the result.
-
-For example:
-Sample Input 1:
-5 5
-1 2 3 4 5
-Sample Output 1:
-1 4
-2 3
-*/
-
-
-/*
+// // Logic-----------------------
+// /* 
+// In a given array we have to return all the pairs that equal to the sum S  and each value should be sorted
+// that means the first value will be smaller than the second value We have to return the list
+// of all pairs in ascending order The pair with the smaller first value will come first and if the value is similar
+// then the pair whose second value is smaller will come first..
+// For example:
+// Sample Input 1:
+// 5 5
+// 1 2 3 4 5
+// Sample Output 1:
+// 1 4
+// 2 3
+// */
 
 // Steps :--
 
 /* 
 1) Sort the array in ascending order.
 2) Iterate through the array to find pairs whose sum equals the target sum.
-3) While iterating, skip duplicates to avoid duplicate pairs in the result.
-4) If a pair is found, add it to the result array.
-5) Return the result array containing all pairs whose sum equals the target sum.
+3) While iterating, store pairs in an array.
+4) Return the array containing all pairs whose sum equals the target sum.
 */
 
 
-// Constraints
+//  Constraints
 /* 
-1 <= N <= 10^3
--10^5 <= ARR[i] <= 10^5
--2 * 10^5 <= S <= 2 * 10^5
+-10^5 <= arr[i] <= 10^5
+2 <= arr.length <= 104
+-2 * 10^5 <= sum <= 2 * 10^5
 
 Time Limit: 1 sec
 */
 
 // Dry Run
 /*
-Given Example: arr = [2, -2, -3, 3, 3, -2], sum = 0
+Given Example: arr = [2, 2, 2, 3, 2], sum = 4
 
-Sorted array: [-3, -2, -2, 2, 3, 3]
+Sorted array: [2, 2, 2, 2, 3]
 
 Iteration 1:
-firstNum = -3, secondNum = -2
--3 + (-2) = -5 ≠ 0 => Continue
+firstPair = 2, arr[j] = 2
+2 + 2 = 4 (sum)
+Push [2, 2] to arr1
 
 Iteration 2:
-firstNum = -3, secondNum = 2
--3 + 2 = -1 ≠ 0 => Continue
+firstPair = 2, arr[j] = 2
+2 + 2 = 4 (sum)
+Push [2, 2] to arr1
 
 Iteration 3:
-firstNum = -3, secondNum = 3
--3 + 3 = 0 => Push [firstNum, secondNum] to pairs => pairs = [[-3, 3]]
+firstPair = 2, arr[j] = 2
+2 + 2 = 4 (sum)
+Push [2, 2] to arr1
 
 Iteration 4:
-firstNum = -2, secondNum = 2
--2 + 2 = 0 => Push [firstNum, secondNum] to pairs => pairs = [[-3, 3], [-2, 2]]
+firstPair = 2, arr[j] = 3
+2 + 3 ≠ 4 (sum)
 
-Iteration 5:
-firstNum = 3, secondNum = -2
-3 + (-2) = 1 ≠ 0 => Continue
-
-Output: [[-3, 3], [-2, 2]]
+Output: [[2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2]]
 */
+
+
+
+
+
