@@ -28,6 +28,23 @@ const pairSum = function(arr, sum) {
         arr1.push([arr[i], arr[j]]);
       }
     }
+/*	// UNDERSTAND how in method 1 we can do without push method  
+	  // Ans - we will just loop and copy in the new arrayor we can use any other method  like concat , spread operator .
+   let counter = 0;
+for (let i = 0; i < arr.length; i++) {
+  for (let j = i + 1; j < arr.length; j++) {
+    if (arr[j] + arr[i] === sum) {
+      arr1[counter] = [arr[i], arr[j]];
+      counter++;
+    }
+  }
+}
+*/   // Using concat
+	/*
+	arr1 = arr1.concat([[arr[i], arr[j]]]);
+      // Using spread operator
+	arr1 = [...arr1, [arr[i], arr[j]]];
+	*/
   }
   
   return arr1;
