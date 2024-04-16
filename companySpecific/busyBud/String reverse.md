@@ -1,11 +1,9 @@
-Certainly! Here's the full list with all the methods and their explanations, complexities, and code snippets:
 
 ### Method 1 (Brute Force)
 1) Iterate through the input string from the end.
 2) Keep a new array variable and copy all characters from the input string in reverse order.
 3) Join the array to form the reversed string.
 
-### Method 1 (Brute Force)
 **Time Complexity**: O(n) - where n is the length of the input string.  
 **Space Complexity**: O(n) - extra space is required for the new array `newStr`.
 ```javascript
@@ -23,7 +21,6 @@ function FirstReverse(str) {
 2) Use the `reverse()` method of arrays to reverse the array.
 3) Join the array back into a string.
 
-### Method 2 (Using Array.reverse())
 **Time Complexity**: O(n) - where n is the length of the input string.  
 **Space Complexity**: O(n) - extra space is required for the array `newStr`.
 ```javascript
@@ -40,22 +37,21 @@ function FirstReverse(str) {
 3) Swap characters at these pointers until they meet in the middle.
 4) Join the array back into a string.
 
-### Method 3 (Optimal - In-Place Reversal)
 **Time Complexity**: O(n) - where n is the length of the input string.  
-**Space Complexity**: O(1) - extra space is required for the array `str`.
+**Space Complexity**: O(n) - extra space is required for the array `strArr`.
 ```javascript
 function FirstReverse(str) {
-    str = str.split('');
+    const strArr = str.split('');
     let left = 0;
-    let right = str.length - 1;
+    let right = strArr.length - 1;
 
     while (left < right) {
-        [str[left], str[right]] = [str[right], str[left]];
+        [strArr[left], strArr[right]] = [strArr[right], strArr[left]];
         left++;
         right--;
     }
 
-    return str.join('');
+    return strArr.join('');
 }
 ```
 
@@ -64,17 +60,16 @@ function FirstReverse(str) {
 2) Swap characters at these pointers until they meet in the middle.
 3) Join the array back into a string.
 
-### Method 4 (Optimal - In-Place Reversal without Destructuring)
 **Time Complexity**: O(n) - where n is the length of the input string.  
-**Space Complexity**: O(1) - extra space is required for the array `strArr`.
+**Space Complexity**: O(n) - extra space is required for the array `strArr`.
 ```javascript
 function reverseStringInPlace(str) {
-    let strArr = str.split('');
+    const strArr = str.split('');
     let left = 0;
     let right = strArr.length - 1;
 
     while (left < right) {
-        let temp = strArr[left];
+        const temp = strArr[left];
         strArr[left] = strArr[right];
         strArr[right] = temp;
         left++;
@@ -89,8 +84,7 @@ function reverseStringInPlace(str) {
 1) Use string slicing to reverse the input string.
 2) Return the reversed string.
 
-### Method 5 (Using String Slicing)
-**Time Complexity**: O(n^2) - where n is the length of the input string.  
+**Time Complexity**: O(n) - where n is the length of the input string.  
 **Space Complexity**: O(n) - extra space is required for the string `reversedStr`.
 ```javascript
 function reverseStringInPlace(str) {
@@ -106,8 +100,7 @@ function reverseStringInPlace(str) {
 1) Use string `substring` to reverse the input string character by character.
 2) Return the reversed string.
 
-### Method 6 (Using String Substring)
-**Time Complexity**: O(n^2) - where n is the length of the input string.  
+**Time Complexity**: O(n) - where n is the length of the input string.  
 **Space Complexity**: O(n) - extra space is required for the string `reversedStr`.
 ```javascript
 function reverseStringWithSubstring(str) {
@@ -123,8 +116,7 @@ function reverseStringWithSubstring(str) {
 1) Use string `slice` to reverse the input string character by character.
 2) Return the reversed string.
 
-### Method 7 (Using String Slice)
-**Time Complexity**: O(n^2) - where n is the length of the input string.  
+**Time Complexity**: O(n) - where n is the length of the input string.  
 **Space Complexity**: O(n) - extra space is required for the string `reversedStr`.
 ```javascript
 function reverseStringWithSlice(str) {
@@ -135,5 +127,3 @@ function reverseStringWithSlice(str) {
     return reversedStr;
 }
 ```
-
-Now you have all the methods, their explanations, complexities, and code snippets. Let me know if there's anything else you need!
